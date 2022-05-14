@@ -13,7 +13,7 @@ pip install -r requirements.txt
 
 * default setting   
 ```bash
-python cifar_train.py --gpu 0 --imb_type exp --imb_factor 0.01 --loss_type CE --train_rule None
+python main.py --start 2022-04-01 --end 2022-04-30 --threshold 0.5 --list_name DOW --save_folder graph_png 
 ```
 
 ## Graph Example
