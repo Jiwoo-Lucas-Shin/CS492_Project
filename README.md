@@ -12,7 +12,7 @@ pip install -r requirements.txt
     *   save_folder: folder name which png files will be saved (default: graph_png)   
 
 * default setting   
-   python main.py --start 2022-04-01 --end 2022-04-30 --threshold  --list_name DOW --save_folder graph_png   
+'python main.py --start 2022-04-01 --end 2022-04-30 --threshold  --list_name DOW --save_folder graph_png'   
 
 ## Graph Example
 ![clustring](https://user-images.githubusercontent.com/87713422/168440811-dc2340d9-461c-46d2-b95f-bad813f270ad.png)
