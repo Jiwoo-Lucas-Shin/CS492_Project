@@ -14,5 +14,5 @@ main.py:
 > list_name: list name which I want to use ('S&P500' or 'DOW')
 > 
 > save_path: path you want to save the png images
-> 
-    
+
+    code plcae
