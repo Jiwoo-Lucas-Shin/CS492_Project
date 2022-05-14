@@ -12,8 +12,7 @@ pip install -r requirements.txt
     *   save_folder: folder name which png files will be saved (default: graph_png)   
 
 * default setting   
-'''
-python
+'''bash
 python main.py --start 2022-04-01 --end 2022-04-30 --threshold  --list_name DOW --save_folder graph_png
 '''   
 
