@@ -13,6 +13,7 @@ pip install -r requirements.txt
 
 * default setting   
 '''
+python
 python main.py --start 2022-04-01 --end 2022-04-30 --threshold  --list_name DOW --save_folder graph_png
 '''   
 
