@@ -12,9 +12,9 @@ pip install -r requirements.txt
     *   save_folder: folder name which png files will be saved (default: graph_png)   
 
 * default setting   
-'''bash
-python main.py --start 2022-04-01 --end 2022-04-30 --threshold  --list_name DOW --save_folder graph_png
-'''   
+```bash
+python cifar_train.py --gpu 0 --imb_type exp --imb_factor 0.01 --loss_type CE --train_rule None
+```
 
 ## Graph Example
 ![clustring](https://user-images.githubusercontent.com/87713422/168440811-dc2340d9-461c-46d2-b95f-bad813f270ad.png)
