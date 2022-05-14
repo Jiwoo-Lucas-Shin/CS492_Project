@@ -5,7 +5,8 @@ pip install -r requirements.txt
 
 ### main.py arguments (default value exists)    
 |- main.py:   
-        * start: start date   
+* start: start date   
+       * ㅗㅑ
 > end: end date   
 > threshold: cosine similarity threshold (absolute value)   
 > list_name: list name which I want to use ('S&P500' or 'DOW')   
