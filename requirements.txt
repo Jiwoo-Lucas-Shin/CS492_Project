@@ -1,3 +1,0 @@
-yfinance
-yahoo_fin
-node2vec
