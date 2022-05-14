@@ -11,6 +11,7 @@ pip install -r requirements.txt
     *   list_name: list name which I want to use ('S&P500' or 'DOW') (default: DOW)   
     *   save_folder: folder name which png files will be saved (default: graph_png)   
 
+* default setting
       python main.py --start 2022-04-01 --end 2022-04-30 --threshold  --list_name DOW --save_folder graph_png
 
 ## Graph Example
