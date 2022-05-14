@@ -1,4 +1,4 @@
-# CS492-Project
+# CS492_Project (Jiwoo Shin, Suyeon Lee)
 
 ## Installation   
 pip install -r requirements.txt
