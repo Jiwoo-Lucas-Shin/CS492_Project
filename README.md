@@ -3,13 +3,13 @@
 ## Installation   
 pip install -r requirements.txt
 
-### main.py arguments (default value exists)    
+### main.py arguments    
 * main.py:   
-    *   start: start date (default: 2022-04-01)   
-    *   end: end date (default: 2022-04-30)   
-    *   threshold: cosine similarity threshold (absolute value) (default: 0.5)   
-    *   list_name: list name which I want to use ('S&P500' or 'DOW') (default: DOW)   
-    *   save_folder: folder name which png files will be saved (default: graph_png)   
+    *   start: start date   
+    *   end: end date   
+    *   threshold: cosine similarity threshold (absolute value)   
+    *   list_name: list name which I want to use ('S&P500' or 'DOW')   
+    *   save_folder: folder name which png files will be saved   
 
 * default setting   
 ```bash
