@@ -10,5 +10,5 @@ pip install -r requirements.txt
     *   threshold: cosine similarity threshold (absolute value)   
     *   list_name: list name which I want to use ('S&P500' or 'DOW')   
     *   save_folder: path you want to save the png images   
-      
-      code plcae
+
+      python main.py --start 2022-04-01 --end 2022-04-30 --threshold 0.5 --list_name DOW --save_folder graph_png
