@@ -12,3 +12,5 @@ pip install -r requirements.txt
     *   save_folder: path you want to save the png images   
 
       python main.py --start 2022-04-01 --end 2022-04-30 --threshold 0.5 --list_name DOW --save_folder graph_png
+
+![graph](https://user-images.githubusercontent.com/87713422/168440780-b81754d2-a879-4543-9215-ca52bc7836d5.png)
