@@ -1,9 +1,11 @@
 # CS492-Project
 
 **Installation**
+
 pip install -r requirements.txt
 
 **main.py arguments (default value exists)**
+
 main.py:
 > start: start date
 >
