@@ -8,7 +8,7 @@ pip install -r requirements.txt
     *   start: start date   
     *   end: end date   
     *   threshold: cosine similarity threshold (absolute value)   
-    *   list_name: list name which I want to use ('S&P500' or 'DOW')   
+    *   list_name: list name which I want to use ('SnP500' or 'DOW')   
     *   save_folder: folder name which png files will be saved   
 
 * default setting   
