@@ -39,7 +39,7 @@ def save_graph_png(G, save_path):
         else:
             node_color.append('blue')
     
-    plt.figure(figsize=(50, 50))
+    plt.figure(figsize=(40, 40))
     # degree centrality
     d = dict(G.degree)
     nx.draw(G, with_labels=True, node_color = node_color,
