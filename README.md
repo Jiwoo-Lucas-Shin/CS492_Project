@@ -18,7 +18,10 @@ pip install -r requirements.txt
 ```bash
 python main.py --start 2022-04-25 --end 2022-05-23 --cor_type both --threshold 0.9 --market_index SnP500 --list_name SnP500 --save_folder results 
 ```
+## Input Graph
+![input](https://user-images.githubusercontent.com/87713422/170006456-d40b65f6-b66a-41d1-914d-ed42c60de2c9.png)
 
+## Clustering Graph
 
 ## Ranking Results
 <p align="center"><img src="https://user-images.githubusercontent.com/87713422/170003610-03630e49-74a5-4b30-a17e-0500d048d50e.PNG"></p>
