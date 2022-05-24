@@ -16,7 +16,7 @@ pip install -r requirements.txt
 
 * default setting   
 ```bash
-python main.py --start 2022-04-01 --end 2022-04-30 --cor_type both --threshold 0.9 --market_index SnP500 --list_name SnP500 --save_folder results 
+python main.py --start 2022-04-25 --end 2022-05-23 --cor_type both --threshold 0.9 --market_index SnP500 --list_name SnP500 --save_folder results 
 ```
 
 
