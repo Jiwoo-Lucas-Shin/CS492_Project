@@ -39,7 +39,7 @@ def save_graph_png(G, save_path):
         else:
             node_color.append('blue')
     
-    plt.figure(figsize=(50, 50))
+    plt.figure(figsize=(40, 40))
     # degree centrality
     d = dict(G.degree)
     nx.draw(G, with_labels=True, node_color = node_color,
@@ -81,7 +81,7 @@ def save_cluster_result(G, node_vecs, save_path):
     for n, label in zip(node_vecs.wv.index2entity, gm.predict(node_vecs.wv.vectors)):
         G.nodes[n]['label'] = label
 
-    plt.figure(figsize=(30, 30))
+    plt.figure(figsize=(40, 40))
     nx.draw_networkx(G, pos=nx.layout.spring_layout(G), 
                     node_color=[n[1]['label'] for n in G.nodes(data=True)], 
                     cmap=plt.cm.rainbow
