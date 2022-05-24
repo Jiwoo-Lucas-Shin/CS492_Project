@@ -13,6 +13,7 @@ pip install -r requirements.txt
     *   company_list: list name which I want to use ('SnP500' or 'DOW')   
     *   save_folder: folder name which png files will be saved   
 
+
 * default setting   
 ```bash
 python main.py --start 2022-04-01 --end 2022-04-30 --cor_type both --threshold 0.9 --market_index SnP500 --list_name SnP500 --save_folder results 
@@ -22,10 +23,8 @@ python main.py --start 2022-04-01 --end 2022-04-30 --cor_type both --threshold 0
 ## Ranking Results
 <p align="center"><img src="https://user-images.githubusercontent.com/87713422/170003610-03630e49-74a5-4b30-a17e-0500d048d50e.PNG"></p>
 
-
 ## ARE vs PLD
-![FIRST](https://user-images.githubusercontent.com/87713422/170003851-3c84fdc6-1055-414d-ad72-30dd0a7bfe35.PNG)
-
+<p align="center"><img src="https://user-images.githubusercontent.com/87713422/170003851-3c84fdc6-1055-414d-ad72-30dd0a7bfe35.PNG"></p>
 
 ## S&P500 vs AAPL
-![SECOND](https://user-images.githubusercontent.com/87713422/170003761-d054656d-7524-4bd4-948f-93976193412f.PNG)
+<p align="center"><img src="https://user-images.githubusercontent.com/87713422/170003761-d054656d-7524-4bd4-948f-93976193412f.PNG"></p>
