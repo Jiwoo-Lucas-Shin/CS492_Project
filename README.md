@@ -7,13 +7,15 @@ pip install -r requirements.txt
 * main.py:   
     *   start: start date   
     *   end: end date   
-    *   threshold: cosine similarity threshold (absolute value)   
-    *   list_name: list name which I want to use ('SnP500' or 'DOW')   
+    *   cor_type: correlation type ('positive', 'negative', 'both')
+    *   threshold: cosine similarity threshold (absolute value)
+    *   market_index: market index ('Nasdaq' or 'SnP500')   
+    *   company_list: list name which I want to use ('SnP500' or 'DOW')   
     *   save_folder: folder name which png files will be saved   
 
 * default setting   
 ```bash
-python main.py --start 2022-04-01 --end 2022-04-30 --threshold 0.5 --list_name DOW --save_folder graph_png 
+python main.py --start 2022-04-01 --end 2022-04-30 --cor_type both --threshold 0.85 --market_index SnP500 --list_name SnP500 --save_folder results 
 ```
 
 ## Graph Example
