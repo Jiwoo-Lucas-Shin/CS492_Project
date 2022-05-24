@@ -24,7 +24,7 @@ python main.py --start 2022-04-25 --end 2022-05-23 --cor_type both --threshold 0
 ## Clustering Graph
 
 ## Ranking Results
-<p align="center"><img src="https://user-images.githubusercontent.com/87713422/170003610-03630e49-74a5-4b30-a17e-0500d048d50e.PNG"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/87713422/170007023-0ebaff66-2a8e-4c0b-9ff6-152fe97e4d4f.PNG"></p>
 
 ## ARE vs PLD
 <p align="center"><img src="https://user-images.githubusercontent.com/87713422/170003851-3c84fdc6-1055-414d-ad72-30dd0a7bfe35.PNG"></p>
