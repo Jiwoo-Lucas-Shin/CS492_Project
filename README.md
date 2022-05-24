@@ -20,7 +20,7 @@ python main.py --start 2022-04-01 --end 2022-04-30 --cor_type both --threshold 0
 
 
 ## Ranking Results
-<p align="center"><img src="![RANKING](https://user-images.githubusercontent.com/87713422/170003610-03630e49-74a5-4b30-a17e-0500d048d50e.PNG)"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/87713422/170003610-03630e49-74a5-4b30-a17e-0500d048d50e.PNG"></p>
 
 
 ## ARE vs PLD
