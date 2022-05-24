@@ -18,12 +18,9 @@ pip install -r requirements.txt
 python main.py --start 2022-04-01 --end 2022-04-30 --cor_type both --threshold 0.9 --market_index SnP500 --list_name SnP500 --save_folder results 
 ```
 
-<div align="center">
-  ## Ranking Results
-  ![RANKING](https://user-images.githubusercontent.com/87713422/170003610-03630e49-74a5-4b30-a17e-0500d048d50e.PNG)
-</div>
 
-
+## Ranking Results
+<p align="center"><img src="![RANKING](https://user-images.githubusercontent.com/87713422/170003610-03630e49-74a5-4b30-a17e-0500d048d50e.PNG)"></p>
 
 
 ## ARE vs PLD
