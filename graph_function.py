@@ -3,8 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from node2vec import Node2Vec
 from sklearn.preprocessing import MinMaxScaler
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
+from sklearn.mixture import GaussianMixture
 
 def get_graph(adj_matrix, tot_list):
     # adjacency matrix -> dateframe
@@ -25,17 +24,29 @@ def get_graph(adj_matrix, tot_list):
 
 def save_graph_png(G, save_path):
     node_list = list(G.nodes())
-    node_color = ['red' if node_list[i]=='S&P500' else 'blue' for i in range(len(node_list))]
+    # TOP10, Top11-20 companies in S&P 500 (2022-03-18)
+    Top10 = ['AAPL', 'MSFT', 'AMZN', 'GOOGL', 'GOOG', 'TSLA', 'BRK.B', 'NVDA', 'FB', 'UNH']
+    # Top11_20 = ['JNJ', 'JPM', 'PG', 'V', 'HD', 'XOM', 'BAC', 'CVX', 'PFE', 'MA']
+
+    node_color = []
+    for i in range(len(node_list)):
+        if node_list[i] == 'S&P500' or node_list[i] == 'Nasdaq':
+            node_color.append('red')
+        elif node_list[i] in Top10:
+            node_color.append('yellow')
+        # elif node_list[i] in Top11_20:
+        #     node_color.append('black')
+        else:
+            node_color.append('blue')
     
-    plt.figure(figsize=(20, 20))
+    plt.figure(figsize=(50, 50))
     # degree centrality
     d = dict(G.degree)
     nx.draw(G, with_labels=True, node_color = node_color,
-            node_size = [v * 70 for v in d.values()], font_size=30)
+            node_size = [v * 30 for v in d.values()], font_size=15)
 
     path = save_path + '/degree_centrality.png'
     plt.savefig(path)
-
 
 def apply_node2vec(G):
     node2vec = Node2Vec(graph=G, # target graph
@@ -49,50 +60,35 @@ def apply_node2vec(G):
     
     return node2vec.fit(window=10)
 
-def save_cluster_result(node_vecs, save_path):
+def save_ranking(node_vecs, save_path):
     node_list = list(node_vecs.wv.vocab)
-    com_vector_list = [node_vecs.wv[com] for com in node_list]
-    
-    # sacling usnig MinMaxScaler
-    scaler = MinMaxScaler()
-    node_scale = scaler.fit_transform(com_vector_list)
-    
-    # K-means clustering
-    kmeans = KMeans(n_clusters = 2).fit(com_vector_list)
-    com_cluster = kmeans.fit_predict(node_scale)
-    
-    # use pca to visualize
-    pca = PCA(n_components=2)
-    node_pca = pca.fit_transform(com_vector_list)
-    pca_df = pd.DataFrame(data = node_pca, columns = ['pc1', 'pc2'])
-    
-    # color list (*maximum # of cluster: 6)
-    color_list = []
-    for i in range(len(com_cluster)):
-        if com_cluster[i] == 0:
-            color_list.append('blue')
-        elif com_cluster[i] == 1:
-            color_list.append('red')
-        elif com_cluster[i] == 2:
-            color_list.append('yellow')
-        elif com_cluster[i] == 3:
-            color_list.append('black')
-        elif com_cluster[i] == 4:
-            color_list.append('pink')
-        elif com_cluster[i] == 5:
-            color_list.append('purple')
-        else:
-            color_list.append('orange')
 
-    plt.figure(figsize=(13,7))
-    plt.xlabel("PC1", size=15)
-    plt.ylabel("PC2", size=15)
-    plt.title("Company Embedding Space", size=20)
-    plt.scatter(pca_df['pc1'],pca_df['pc2'], linewidths=5, color=color_list)
+    rank_matrix = pd.DataFrame()
+    rank_matrix = pd.DataFrame()
+
+    for com_name in node_list:
+        sim_list = []
+        for sim_com, _ in node_vecs.most_similar(com_name):
+            sim_list.append(sim_com)
+        rank_matrix[com_name] = pd.Series(sim_list)
     
-    vocab=list(node_list)
-    for i, word in enumerate(vocab):
-        plt.annotate(word, xy=(pca_df['pc1'][i], pca_df['pc2'][i]))
-        
-    path = save_path + '/k-means_reslut.png'
+    path = save_path + '/ranking_matrix.csv'
+    rank_matrix.to_csv(path)
+    
+def save_cluster_result(G, node_vecs, save_path):
+    gm = GaussianMixture(n_components=5, random_state=0).fit(node_vecs.wv.vectors)
+
+    # node의 cluster 부분을 attrdict에 업데이트해줍니다. 
+    for n, label in zip(node_vecs.wv.index2entity, gm.predict(node_vecs.wv.vectors)):
+        G.nodes[n]['label'] = label
+
+    # 그림을 그려줍니다.
+    plt.figure(figsize=(30, 30))
+    nx.draw_networkx(G, pos=nx.layout.spring_layout(G), 
+                    node_color=[n[1]['label'] for n in G.nodes(data=True)], 
+                    cmap=plt.cm.rainbow
+                    )
+    plt.axis('off')
+    
+    path = save_path + '/graph_cluster_result.png'
     plt.savefig(path)

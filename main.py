@@ -1,14 +1,16 @@
 import argparse
 import os
-from utils import get_com_list, get_price_change, price_change, get_adjacency_matrix
-from graph_function import get_graph, save_graph_png, apply_node2vec, save_cluster_result
+from utils import get_com_list, get_price_changes, price_change, get_adjacency_matrix
+from graph_function import get_graph, save_graph_png, apply_node2vec, save_ranking, save_cluster_result
 
 parser = argparse.ArgumentParser(description='CS492 Project')
 parser.add_argument('--start', default='2022-04-01', type=str)
 parser.add_argument('--end', default='2022-04-30', type=str)
-parser.add_argument('--threshold', default=0.5, type=float)
-parser.add_argument('--list_name', default='DOW', type=str)
-parser.add_argument('--save_folder', default='graph_png', type=str)
+parser.add_argument('--cor_type', default='both', type=str, help='positive, negative, both')
+parser.add_argument('--threshold', default=0.9, type=float)
+parser.add_argument('--market_index', default='SnP500', type=str, help='Nasdaq or SnP500')
+parser.add_argument('--company_list', default='SnP500', type=str, help='SnP500 or DOW')
+parser.add_argument('--save_folder', default='results', type=str)
 
 def main():
     args = parser.parse_args()
@@ -18,30 +20,31 @@ def main():
     if not os.path.exists(save_path):
         os.mkdir(save_path)
     
-    com_list = get_com_list(args.list_name)
-    com_price_changes = get_price_change(com_list, args.start, args.end)
-    snp_change = price_change('SPY', args.start, args.end)
-    
-    # Add S&P500_change_rate to com_price_changes
-    com_price_changes['S&P500'] = snp_change
+    com_list = get_com_list(args.company_list)
+
+    # conpany price change + market index price change matrix
+    com_price_changes = get_price_changes(com_list, args.market_index, args.start, args.end)
 
     # total_list
     tot_list = com_price_changes.keys()
     
     # get adjacency matrix
-    adj_matrix = get_adjacency_matrix(com_price_changes, args.threshold, tot_list)
+    adj_matrix = get_adjacency_matrix(com_price_changes, args.cor_type, args.threshold, tot_list)
 
     # get graph using adjacency matrix
     G = get_graph(adj_matrix, tot_list)
     
     # save graph as png (* node size: degree centrality)
     save_graph_png(G, save_path)
-    
+
     # get node vectors
     node_vecs = apply_node2vec(G)
     
+    # save ranking matrix as csv
+    save_ranking(node_vecs, save_path)
+
     # save cluster result as png
-    save_cluster_result(node_vecs, save_path)
+    save_cluster_result(G, node_vecs, save_path)
     
     print('main.py: finished successfully')
     
