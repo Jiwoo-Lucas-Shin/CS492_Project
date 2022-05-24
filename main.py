@@ -4,8 +4,8 @@ from utils import get_com_list, get_price_changes, price_change, get_adjacency_m
 from graph_function import get_graph, save_graph_png, apply_node2vec, save_ranking, save_cluster_result
 
 parser = argparse.ArgumentParser(description='CS492 Project')
-parser.add_argument('--start', default='2022-04-01', type=str)
-parser.add_argument('--end', default='2022-04-30', type=str)
+parser.add_argument('--start', default='2022-04-25', type=str)
+parser.add_argument('--end', default='2022-05-23', type=str)
 parser.add_argument('--cor_type', default='both', type=str, help='positive, negative, both')
 parser.add_argument('--threshold', default=0.9, type=float)
 parser.add_argument('--market_index', default='SnP500', type=str, help='Nasdaq or SnP500')
