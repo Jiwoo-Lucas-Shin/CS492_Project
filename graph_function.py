@@ -78,11 +78,9 @@ def save_ranking(node_vecs, save_path):
 def save_cluster_result(G, node_vecs, save_path):
     gm = GaussianMixture(n_components=5, random_state=0).fit(node_vecs.wv.vectors)
 
-    # node의 cluster 부분을 attrdict에 업데이트해줍니다. 
     for n, label in zip(node_vecs.wv.index2entity, gm.predict(node_vecs.wv.vectors)):
         G.nodes[n]['label'] = label
 
-    # 그림을 그려줍니다.
     plt.figure(figsize=(30, 30))
     nx.draw_networkx(G, pos=nx.layout.spring_layout(G), 
                     node_color=[n[1]['label'] for n in G.nodes(data=True)], 
