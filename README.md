@@ -7,6 +7,8 @@ pip install -r requirements.txt
 * main.py:   
     *   start: start date   
     *   end: end date   
+    *   p: node2vec parameter
+    *   q: node2vec parameter
     *   cor_type: correlation type ('positive', 'negative', 'both')
     *   threshold: cosine similarity threshold (absolute value)
     *   market_index: market index ('Nasdaq' or 'SnP500')   
@@ -16,7 +18,7 @@ pip install -r requirements.txt
 
 * default setting   
 ```bash
-python main.py --start 2022-04-25 --end 2022-05-23 --cor_type both --threshold 0.9 --market_index SnP500 --list_name SnP500 --save_folder results 
+python main.py --start 2022-04-25 --end 2022-05-23 --p 1 --q 2 --cor_type both --threshold 0.8 --market_index SnP500 --list_name SnP500 --save_folder results 
 ```
 ## Input Graph
 <p align="center"><img src="https://user-images.githubusercontent.com/87713422/170006456-d40b65f6-b66a-41d1-914d-ed42c60de2c9.png"></p>
