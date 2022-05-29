@@ -48,7 +48,7 @@ def save_graph_png(G, save_path):
     path = save_path + '/degree_centrality.png'
     plt.savefig(path)
 
-def apply_node2vec(G, p_intput, q_input):
+def apply_node2vec(G, p_input, q_input):
     node2vec = Node2Vec(graph=G, # target graph
                         dimensions=50, # embedding dimension
                         walk_length=10, # number of nodes in each walks 
