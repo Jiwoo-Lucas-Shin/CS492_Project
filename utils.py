@@ -45,7 +45,6 @@ def price_change(com_name, start_date, end_date):
     for i in range(1, len(adj_close_df)):
         price_change_rate[i-1] = 100 * (adj_close_df[i] - adj_close_df[i-1]) / adj_close_df[i-1]
     return price_change_rate
-    
 
 def get_adjacency_matrix(com_price_changes, cor_type, threshold, tot_list):
     sim_vectors = cosine_similarity(com_price_changes.T)
@@ -71,3 +70,15 @@ def get_adjacency_matrix(com_price_changes, cor_type, threshold, tot_list):
         
     adj_matrix.set_index(keys=tot_list, inplace=True)
     return adj_matrix
+
+def save_cosine_ranking(com_price_changes, save_path):
+    tot_list = com_price_changes.keys()
+    sim_vectors = cosine_similarity(com_price_changes.T)
+    rank_matrix = pd.DataFrame()
+
+    for i in range(len(tot_list)):
+        rank = tot_list[(-1*sim_vectors[i]).argsort()[1:11]]
+        rank_matrix[tot_list[i]] = pd.Series(rank)
+
+    path = save_path + '/cosine_ranking_matrix.csv'
+    rank_matrix.to_csv(path)
