@@ -54,7 +54,6 @@ def apply_node2vec(G, p_input, q_input):
                         walk_length=10, # number of nodes in each walks 
                         p = p_input,
                         q = q_input,
-                        weight_key='similarity', # weighted node2vec
                         num_walks=1000, 
                         workers=1)
     
