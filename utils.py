@@ -77,7 +77,7 @@ def save_cosine_ranking(com_price_changes, save_path):
     rank_matrix = pd.DataFrame()
 
     for i in range(len(tot_list)):
-        rank = tot_list[(-1*sim_vectors[i]).argsort()[1:11]]
+        rank = tot_list[(-1*abs(sim_vectors[i])).argsort()[1:11]]
         rank_matrix[tot_list[i]] = pd.Series(rank)
 
     path = save_path + '/cosine_ranking_matrix.csv'
