@@ -75,7 +75,7 @@ def save_ranking(node_vecs, save_path):
     rank_matrix.to_csv(path)
     
 def save_cluster_result(G, node_vecs, save_path):
-    gm = GaussianMixture(n_components=4, random_state=0).fit(node_vecs.wv.vectors)
+    gm = GaussianMixture(n_components=3, random_state=0).fit(node_vecs.wv.vectors)
 
     for n, label in zip(node_vecs.wv.index2entity, gm.predict(node_vecs.wv.vectors)):
         G.nodes[n]['label'] = label
