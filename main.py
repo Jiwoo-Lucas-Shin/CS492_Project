@@ -1,6 +1,6 @@
 import argparse
 import os
-from utils import get_com_list, get_price_changes, price_change, get_adjacency_matrix
+from utils import get_com_list, get_price_changes, price_change, get_adjacency_matrix, save_cosine_ranking
 from graph_function import get_graph, save_graph_png, apply_node2vec, save_ranking, save_cluster_result
 
 parser = argparse.ArgumentParser(description='CS492 Project')
@@ -26,6 +26,9 @@ def main():
 
     # conpany price change + market index price change matrix
     com_price_changes = get_price_changes(com_list, args.market_index, args.start, args.end)
+
+    # get cosine similarity ranking
+    save_cosine_ranking(com_price_changes, save_path)
 
     # total_list
     tot_list = com_price_changes.keys()
