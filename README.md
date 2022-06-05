@@ -1,4 +1,4 @@
-# CS492_Project (Jiwoo Shin, Suyeon Lee)
+# What role does the company play in the market?
 
 ## Installation   
 pip install -r requirements.txt
