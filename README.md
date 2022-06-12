@@ -1,4 +1,4 @@
-# What role does the company play in the market?
+# Applying node2vec on Stock Price Data
 
 ## Installation   
 pip install -r requirements.txt
@@ -18,5 +18,5 @@ pip install -r requirements.txt
 
 * default setting   
 ```bash
-python main.py --start 2022-04-25 --end 2022-05-23 --p 1 --q 2 --cor_type both --threshold 0.8 --market_index SnP500 --list_name SnP500 --save_folder results 
+python main.py --start 2022-04-25 --end 2022-05-23 --p 1 --q 2 --cor_type both --threshold 0.85 --market_index SnP500 --list_name SnP500 --save_folder results 
 ```
