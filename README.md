@@ -10,7 +10,7 @@ pip install -r requirements.txt
     *   p: node2vec parameter
     *   q: node2vec parameter
     *   cor_type: correlation type ('positive', 'negative', 'both')
-    *   threshold: cosine similarity threshold (absolute value)
+    *   threshold: cosine similarity threshold
     *   market_index: market index ('Nasdaq' or 'SnP500')   
     *   company_list: list name which I want to use ('SnP500' or 'DOW')   
     *   save_folder: folder name which png files will be saved   
